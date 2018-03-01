@@ -44,9 +44,6 @@ $(document).ready(() => {
     } else {
       delete activeCells[rowColString];
     }
-
-    debugger;
-    // console.log(`uiGridCellClick() ${rowColString}`);
   }
 
   // BUTTON EVENT HANDLERS
