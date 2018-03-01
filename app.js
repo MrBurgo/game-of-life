@@ -1,3 +1,3 @@
-$(document).ready(function () {
-  
+$(document).ready(() => {
+  $('#stop-tick-btn').attr('disabled', true)
 })
