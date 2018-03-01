@@ -81,5 +81,6 @@ $(document).ready(() => {
 
   function dumpConfigBtnClick(event) {
     event.preventDefault();
+    console.log(activeCells);
   }
 })
