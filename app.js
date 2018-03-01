@@ -20,10 +20,20 @@ const maxCols = 20;
       const row = $('<tr>')
       for (let j = 0; j < maxCols; j++){
         const cell = $('<td>')
+        const rowColString = `${i},${j}`
+        cell.attr('data-row-col', rowColString)
+        cell.click(uiGridCellClick)
         row.append(cell);
       }
       $('#ui-grid').append(row);
     }
+  }
+
+  // CELL EVENT HANDLERS
+  function uiGridCellClick(event) {
+    event.preventDefault();
+    const rowColString = $(this).attr('data-row-col')
+    console.log(`uiGridCellClick() ${rowColString}`);
   }
 
   // BUTTON EVENT HANDLERS
@@ -36,13 +46,10 @@ const maxCols = 20;
     $('#start-tick-btn').removeAttr('disabled')
 
     $('#stop-tick-btn').attr('disabled', true)
-
-    console.log('stopBtnClick()')
   }
 
   function oneTickBtnClick(event) {
     event.preventDefault()
-    console.log('oneTickBtnClick()')
   }
 
   function startTickBtnClick(event) {
@@ -54,17 +61,13 @@ const maxCols = 20;
     $('#start-tick-btn').attr('disabled', true)
 
     $('#stop-tick-btn').removeAttr('disabled')
-
-    console.log('startTickBtnClick()')
   }
 
   function clearBtnClick(event) {
-    event.preventDefault()
-    console.log('clearBtnClick()')
+    event.preventDefault();
   }
 
   function dumpConfigBtnClick(event) {
-    event.preventDefault()
-    console.log('dumpConfigBtnClick()')
+    event.preventDefault();
   }
 })
